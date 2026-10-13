@@ -1,0 +1,492 @@
+* {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% 20%, #3d3d3d 0%, #1c1c1c 45%, #0d0d0d 100%);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .game {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 45px;
+    }
+
+    /* =========================
+       COFFEE MACHINE
+    ========================= */
+
+    .machine {
+      position: relative;
+      width: 440px;
+      min-height: 650px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #151515 0%,
+          #292929 8%,
+          #191919 50%,
+          #303030 92%,
+          #111 100%
+        );
+
+      border: 3px solid #444;
+      border-radius: 22px;
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, .6),
+        inset 0 0 30px rgba(255,255,255,.04);
+
+      padding: 28px;
+    }
+
+    .machine-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .brand {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #f1c27d;
+    }
+
+    .power {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #39e56c;
+      box-shadow: 0 0 12px #39e56c;
+    }
+
+    /* Display */
+
+    .display {
+      height: 115px;
+      border-radius: 12px;
+      background: #07100a;
+
+      border: 4px solid #111;
+
+      box-shadow:
+        inset 0 0 20px rgba(0,0,0,.9),
+        0 2px 5px rgba(255,255,255,.05);
+
+      padding: 17px 20px;
+
+      font-family: "Courier New", monospace;
+      color: #5dff82;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      text-shadow: 0 0 8px rgba(93,255,130,.5);
+    }
+
+    .display-title {
+      font-size: 14px;
+      opacity: .65;
+      margin-bottom: 8px;
+    }
+
+    .display-value {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .info-panel {
+        margin-bottom: 10px;
+    }
+
+    .info-panel {
+        display: none;
+    }
+
+    /* Main control area */
+
+    .control-panel {
+      display: grid;
+      grid-template-columns: 1fr 130px;
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .coffee-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .coffee-button {
+      height: 75px;
+
+      border: 2px solid #555;
+      border-radius: 10px;
+
+      background:
+        linear-gradient(#3b3b3b, #202020);
+
+      color: white;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 4px 0 #101010,
+        inset 0 1px rgba(255,255,255,.1);
+
+      transition: .15s ease;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .coffee-button:hover {
+      transform: translateY(-2px);
+      border-color: #d6a35b;
+    }
+
+    .coffee-button:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #101010;
+    }
+
+    .coffee-icon {
+      font-size: 23px;
+    }
+
+    .coffee-name {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .coffee-price {
+      font-size: 11px;
+      color: #d6a35b;
+    }
+
+    /* =========================
+       BILL ACCEPTOR
+    ========================= */
+
+    .acceptor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .acceptor-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #aaa;
+      text-align: center;
+    }
+
+    .bill-slot {
+      width: 105px;
+      height: 155px;
+
+      background:
+        linear-gradient(145deg, #272727, #111);
+
+      border: 3px solid #444;
+      border-radius: 12px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      box-shadow:
+        inset 0 0 15px rgba(0,0,0,.8);
+    }
+
+    .slot-inner {
+      width: 72px;
+      height: 14px;
+
+      border-radius: 8px;
+
+      background: #050505;
+
+      border: 2px solid #555;
+
+      box-shadow:
+        inset 0 0 8px #000,
+        0 0 4px rgba(255,255,255,.1);
+    }
+
+    .acceptor-led {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #f1c27d;
+      box-shadow: 0 0 8px #f1c27d;
+    }
+
+    /* =========================
+       COFFEE AREA
+    ========================= */
+
+    .coffee-area {
+      margin-top: 28px;
+
+      height: 155px;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(#202020, #111);
+
+      border: 2px solid #333;
+
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      padding-bottom: 25px;
+    }
+
+    .nozzle {
+      position: absolute;
+
+      top: 15px;
+
+      width: 30px;
+      height: 48px;
+
+      background: #777;
+
+      border-radius: 4px 4px 12px 12px;
+
+      box-shadow:
+        inset 0 0 5px rgba(0,0,0,.7);
+    }
+
+    .cup {
+      width: 105px;
+      height: 70px;
+
+      background: linear-gradient(#fff, #ddd);
+
+      border-radius: 5px 5px 25px 25px;
+
+      box-shadow:
+        0 5px 15px rgba(0,0,0,.4);
+
+      position: relative;
+    }
+
+    .coffee {
+      position: absolute;
+
+      top: 5px;
+      left: 7px;
+      right: 7px;
+
+      height: 15px;
+
+      border-radius: 50%;
+
+      background: #3b2116;
+    }
+
+    .cup::after {
+      content: "";
+
+      position: absolute;
+
+      right: -20px;
+      top: 14px;
+
+      width: 25px;
+      height: 35px;
+
+      border: 6px solid #ddd;
+
+      border-left: 0;
+
+      border-radius: 0 15px 15px 0;
+    }
+
+    /* =========================
+       MONEY AREA
+    ========================= */
+
+    .money-section {
+      width: 100%;
+      text-align: center;
+    }
+
+    .money-title {
+      margin-bottom: 18px;
+
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      color: #aaa;
+    }
+
+    .money {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* Banknote */
+
+    .bill {
+      width: 150px;
+      height: 70px;
+
+      border-radius: 7px;
+
+      position: relative;
+
+      cursor: grab;
+
+      user-select: none;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-weight: 800;
+      font-size: 24px;
+
+      box-shadow:
+        0 8px 15px rgba(0,0,0,.4);
+
+      transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+    }
+
+    .bill:hover {
+      transform: translateY(-5px) rotate(-1deg);
+
+      box-shadow:
+        0 15px 25px rgba(0,0,0,.5);
+    }
+
+    .bill:active {
+      cursor: grabbing;
+      transform: scale(.96);
+    }
+
+    .bill::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 6px;
+
+      border: 1px dashed rgba(0,0,0,.3);
+
+      border-radius: 4px;
+    }
+
+    .bill-value {
+      position: relative;
+      z-index: 1;
+    }
+
+    .bill-corner {
+      position: absolute;
+
+      font-size: 10px;
+
+      opacity: .7;
+    }
+
+    .bill-corner.top {
+      top: 9px;
+      left: 10px;
+    }
+
+    .bill-corner.bottom {
+      bottom: 9px;
+      right: 10px;
+    }
+
+    /* Different bills */
+
+    .bill-50 {
+      background: #b5d6a7;
+      color: #17331b;
+    }
+
+    .bill-100 {
+      background: #b9cce8;
+      color: #162b4b;
+    }
+
+    .bill-200 {
+      background: #e6c4a3;
+      color: #4a2914;
+    }
+
+    .bill-500 {
+      background: #cdb9df;
+      color: #302040;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 600px) {
+      .machine {
+        width: 100%;
+        max-width: 440px;
+      }
+
+      .control-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .acceptor {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .bill-slot {
+        width: 150px;
+        height: 75px;
+      }
+
+      .money {
+        gap: 10px;
+      }
+
+      .bill {
+        width: 135px;
+      }
+    }
