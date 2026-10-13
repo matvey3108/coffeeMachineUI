@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Coffee Machine</title>
+
+</head>
+
+<body>
+
+  <div class="game">
+
+    <!-- COFFEE MACHINE -->
+    <div class="machine">
+
+      <div class="machine-top">
+        <div class="brand">COFFEE</div>
+        <div class="power"></div>
+      </div>
+
+      <!-- DISPLAY -->
+      <div class="display">
+        <div class="display-title">
+          <span class="text-info">Выберите кофе</span>
+        </div>
+
+        <div class="display-value">
+          <span class="info-panel"></span>
+        </div>
+
+      </div>
+
+      <!-- BUTTONS + ACCEPTOR -->
+      <div class="control-panel">
+
+        <div class="coffee-buttons">
+
+          <button class="coffee-button" data-name ='ESPRESSO' data-price="1.50 €">
+            <span class="coffee-icon">☕</span>
+            <span class="coffee-name">ESPRESSO</span>
+            <span class="coffee-price">1.50 €</span>
+          </button>
+
+          <button class="coffee-button" data-name ='AMERICANO' data-price="2.00 €">
+            <span class="coffee-icon">☕</span>
+            <span class="coffee-name ">AMERICANO</span>
+            <span class="coffee-price">2.00 €</span>
+          </button>
+
+          <button class="coffee-button" data-name ='CAPPUCCINO' data-price="2.50 €">
+            <span class="coffee-icon">☕</span>
+            <span class="coffee-name">CAPPUCCINO</span>
+            <span class="coffee-price">2.50 €</span>
+          </button>
+
+          <button class="coffee-button" data-name ='LATTE' data-price="3.00 €">
+            <span class="coffee-icon">☕</span>
+            <span class="coffee-name ">LATTE</span>
+            <span class="coffee-price">3.00 €</span>
+          </button>
+
+        </div>
+
+        <!-- BILL ACCEPTOR -->
+        <div class="acceptor">
+
+          <div class="acceptor-label">
+            Insert<br />
+            banknote
+          </div>
+
+          <div class="bill-slot" id="dropzone">
+            <div class="slot-inner"></div>
+          </div>
+
+          <div class="acceptor-led"></div>
+
+        </div>
+
+      </div>
+
+      <!-- COFFEE DISPENSER -->
+      <div class="coffee-area">
+
+        <div class="nozzle"></div>
+
+        <div class="cup">
+          <div class="coffee"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MONEY -->
+    <div class="money-section">
+
+      <div class="money-title">
+        Money
+      </div>
+
+      <div class="money">
+
+        <div
+          class="bill bill-50"
+          id="draggable"
+          draggable="true"
+          data-value="50"
+        >
+          <span class="bill-corner top">€</span>
+          <span class="bill-value">50 €</span>
+          <span class="bill-corner bottom">50</span>
+        </div>
+
+        <div
+          class="bill bill-100"
+          draggable="true"
+          data-value="100"
+        >
+          <span class="bill-corner top">€</span>
+          <span class="bill-value">100 €</span>
+          <span class="bill-corner bottom">100</span>
+        </div>
+
+        <div
+          class="bill bill-200"
+          draggable="true"
+          data-value="200"
+        >
+          <span class="bill-corner top">€</span>
+          <span class="bill-value">200 €</span>
+          <span class="bill-corner bottom">200</span>
+        </div>
+
+        <div
+          class="bill bill-500"
+          draggable="true"
+          data-value="500"
+        >
+          <span class="bill-corner top">€</span>
+          <span class="bill-value">500 €</span>
+          <span class="bill-corner bottom">500</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
